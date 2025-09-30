@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<base href="https://tcb7m4vt74o2c.ok.kimi.link">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelProSchool - Онлайн-школа профессиональных турагентов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hauss:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Hauss', 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="300" fill="url(%23a)"/><circle cx="800" cy="800" r="400" fill="url(%23a)"/></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .course-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .category-btn {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .category-btn:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-plane text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">TravelProSchool</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#courses" class="nav-link text-gray-700 hover:text-gray-900 font-medium">Курсы</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900 font-medium">О школе</a>
+                    <a href="#teachers" class="nav-link text-gray-700 hover:text-gray-900 font-medium">Преподаватели</a>
+                    <a href="#contacts" class="nav-link text-gray-700 hover:text-gray-900 font-medium">Контакты</a>
+                    <button class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-300">
+                        Начать обучение
+                    </button>
+                </div>
+                
+                <div class="md:hidden">
+                    <button class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 slide-in">
+                        Стань профессиональным 
+                        <span class="text-yellow-300">турагентом</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-100 fade-in">
+                        Онлайн-школа для будущих лидеров туристической индустрии. 
+                        Получите практические навыки, сертификаты и поддержку в трудоустройстве.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 fade-in">
+                        <button class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105">
+                            Начать бесплатно
+                        </button>
+                        <button class="glass-effect text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-all duration-300">
+                            Смотреть видео
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="floating-element">
+                        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="text-center">
+                                    <div class="stats-number">15K+</div>
+                                    <p class="text-gray-200">Выпускников</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="stats-number">95%</div>
+                                    <p class="text-gray-200">Трудоустройство</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="stats-number">50+</div>
+                                    <p class="text-gray-200">Курсов</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="stats-number">24/7</div>
+                                    <p class="text-gray-200">Поддержка</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-20 left-10 floating-element opacity-20">
+            <i class="fas fa-globe text-6xl text-white"></i>
+        </div>
+        <div class="absolute bottom-20 right-10 floating-element opacity-20" style="animation-delay: -2s;">
+            <i class="fas fa-map-marked-alt text-6xl text-white"></i>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Направления обучения</h2>
+                <p class="text-xl text-gray-600">Выберите свое направление в туристической индустрии</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <button class="category-btn active p-4 rounded-xl text-center">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-user-tie text-white"></i>
+                    </div>
+                    <span class="font-medium">Профессия</span>
+                </button>
+                
+                <button class="category-btn p-4 rounded-xl text-center">
+                    <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-globe-americas text-white"></i>
+                    </div>
+                    <span class="font-medium">Международный</span>
+                </button>
+                
+                <button class="category-btn p-4 rounded-xl text-center">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-chart-line text-white"></i>
+                    </div>
+                    <span class="font-medium">Бизнес</span>
+                </button>
+                
+                <button class="category-btn p-4 rounded-xl text-center">
+                    <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-language text-white"></i>
+                    </div>
+                    <span class="font-medium">Языки</span>
+                </button>
+                
+                <button class="category-btn p-4 rounded-xl text-center">
+                    <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-hotel text-white"></i>
+                    </div>
+                    <span class="font-medium">Отели</span>
+                </button>
+                
+                <button class="category-btn p-4 rounded-xl text-center">
+                    <div class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-passport text-white"></i>
+                    </div>
+                    <span class="font-medium">Визы</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Наши курсы</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Выберите подходящую программу обучения и начните свой путь к успешной карьере в туризме
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course Card 1 -->
+                <div class="course-card rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-user-tie text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Профессия Турагент</h3>
+                    <p class="text-gray-600 mb-6">
+                        Полная программа обучения для начинающих. Освойте все аспекты работы турагента за 6 месяцев.
+                    </p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-2xl font-bold text-blue-600">49,900 ₽</span>
+                        <span class="text-sm text-gray-500 line-through">69,900 ₽</span>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            120 часов видеоуроков
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Практические задания
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Сертификат об окончании
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Помощь в трудоустройстве
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        Выбрать курс
+                    </button>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-globe-americas text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Международный туризм</h3>
+                    <p class="text-gray-600 mb-6">
+                        Углубленное изучение международных направлений и особенностей работы с зарубежными клиентами.
+                    </p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-2xl font-bold text-purple-600">39,900 ₽</span>
+                        <span class="text-sm text-gray-500 line-through">54,900 ₽</span>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            80 часов видеоуроков
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Работа с GDS системами
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Визовая поддержка
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Английский для туризма
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        Выбрать курс
+                    </button>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Бизнес в туризме</h3>
+                    <p class="text-gray-600 mb-6">
+                        Научитесь запускать и масштабировать собственное туристическое агентство с нуля.
+                    </p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-2xl font-bold text-green-600">59,900 ₽</span>
+                        <span class="text-sm text-gray-500 line-through">79,900 ₽</span>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            150 часов видеоуроков
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Бизнес-план агентства
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Маркетинг туризма
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Финансовое планирование
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        Выбрать курс
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Почему выбирают нас</h2>
+                <p class="text-xl text-gray-600">
+                    Мы создали идеальную среду для обучения и запуска карьеры в туризме
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Практическое обучение</h3>
+                    <p class="text-gray-600">
+                        80% времени уделяется практическим заданиям и реальным кейсам из туристической индустрии
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Персональный наставник</h3>
+                    <p class="text-gray-600">
+                        Опытный турагент поможет освоить материал и проконсультирует по любым вопросам
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-briefcase text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Трудоустройство</h3>
+                    <p class="text-gray-600">
+                        Помогаем с трудоустройством в крупные туристические компании и агентства
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Гибкий график</h3>
+                    <p class="text-gray-600">
+                        Учитесь в удобное время из любой точки мира. Все материалы доступны 24/7
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Готовы начать карьеру в туризме?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Присоединяйтесь к тысячам выпускников, которые уже работают в ведущих туристических компаниях
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105">
+                    Начать обучение бесплатно
+                </button>
+                <button class="glass-effect text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-all duration-300">
+                    Узнать больше
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-plane text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold">TravelProSchool</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Онлайн-школа профессиональных турагентов. Обучаем с 2018 года.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Курсы</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Профессия Турагент</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Международный туризм</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Бизнес в туризме</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Компания</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">О нас</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Преподаватели</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Отзывы</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Контакты</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>+7 (495) 123-45-67</p>
+                        <p>info@travelproschool.ru</p>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-telegram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 TravelProSchool. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all course cards
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Category buttons
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
