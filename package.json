@@ -1,0 +1,8 @@
+{
+  "name": "travelproschool",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx vite",
+    "build": "echo 'Build complete'"
+  }
+}
